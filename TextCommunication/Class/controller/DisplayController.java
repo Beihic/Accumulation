@@ -11,6 +11,7 @@ public class DisplayController extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String coment = request.getParameter("coment");
+		coment = coment.substring(0, 100);
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		Timestamp timestamp  = new Timestamp(System.currentTimeMillis());
