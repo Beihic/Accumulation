@@ -10,12 +10,12 @@ public class LoginController extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String str = request.getParameter("id");
-		int id = Integer.parseInt(str);
-		String name;
 		String pass = request.getParameter("pass");
+		String name;
 		User user = new User();
 		ComentDao dao = new ComentDao();
-		boolean login = dao.loginJudgement(id, pass);
+		int id = Integer.parseInt(str); 
+		boolean login = doa.loginJudgement(id, pass);
 		if(login){name = dao.searchName(id);} else {name = null;}
 		user.setUser(id, name, pass, login);
 
