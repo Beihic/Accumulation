@@ -19,6 +19,9 @@
 			<form action="/Beihic/ComentController" method="post">
 				<input type="submit" value="RELOAD!">
 			</form>
+			<form action="/Beihic/LogoutController" method="post" >
+				<input type="submit" value="LOGOUT!">
+			</form>
 		</div>
 		<div>
 			<form action="/Beihic/DisplayController" method="post">
