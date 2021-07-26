@@ -12,5 +12,6 @@
 				<input type="submit" value="SUBMIT">
 			</form>
 		</div>
+		<a href="/Beihic/JSP/Register.jsp">REGISTER!</a>
 	</body>
 </html>

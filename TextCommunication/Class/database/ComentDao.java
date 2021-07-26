@@ -78,4 +78,21 @@ public class ComentDao{
 			e.printStackTrace();
 		}
 	}
+
+	public boolean registerUser(int id, String name, String pass){
+		boolean flag = false;
+		try(Connection con = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
+			PreparedStatement pstmt = con.prepareStatement("INSERT INTO ID (ID, NAME, PASS, LOGIN) VALUES(?, ?, ?, FALSE)");
+			pstmt.setInt(1, id);
+			pstmt.setString(2, name);
+			pstmt.setString(3, pass);
+			int r = pstmt.executeUpdate();
+			if(r==1)flag=true;
+			pstmt.close();
+			con.close();
+		} catch(SQLEception e){
+			e.printStackTrace();
+		}
+		return flag;
+	}
 }
