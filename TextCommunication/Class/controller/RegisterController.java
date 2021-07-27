@@ -17,7 +17,7 @@ public class RegisterController extends HttpServlet{
 			if(name.length()<=10 && pass.equals(conPass) && pass.length()<=10 ){
 				int idInt = Integer.parseInt(idString);
 				ComentDao dao = new ComentDao();
-				registerStatus = dao.registerUser(idInt, name, pass);
+				if(dao.registerJudge(idInt){registerStatus = dao.registerUser(idInt, name, pass);}
 			}
 			
 		}

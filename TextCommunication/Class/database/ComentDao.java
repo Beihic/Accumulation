@@ -95,4 +95,20 @@ public class ComentDao{
 		}
 		return flag;
 	}
+
+	public boolean registerJudge(int id){
+		boolean flag = false;
+		try(Connection con = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
+			PreparedStatement pstmt = con.prepareStatement("SELECT * FROM ID WHERE DI = ?");
+			pstmt.setInt(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			if(re.next()){flag=true;}
+			rs.close();
+			pstmt.close();
+			con.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		return flag;
+	}
 }
