@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 	</head>
 	<body>
+		<%@ include file="/JSP/Header.jsp"%>
 		<div>
 			<form action="/Beihic/LoginController" method="post">
 				ID:<input type="number" name="id"><br>
@@ -13,5 +14,6 @@
 			</form>
 		</div>
 		<a href="/Beihic/JSP/Register.jsp">REGISTER!</a>
+		<%@ include file="/JSP/Footer.jsp"%>
 	</body>
 </html>
