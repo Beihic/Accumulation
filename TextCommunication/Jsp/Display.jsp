@@ -7,14 +7,20 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel=stylesheet href="JSP/css/Header.css">
+		<link rel=stylesheet href="JSP/css/Footer.css">
+		<link rel=stylesheet href="JSP/css/Base.css">
 	</head>
 	<body>
-		HERE IS MAIN PAGE!<br>
-		ID:<%= user.getId()%><br>
-		NAME:<%= user.getName()%><br>
-		PASS:<%= user.getPass()%><br>
-		LOGIN:<%= user.getLogin()%><br>
-		<a href="/Beihic/JSP/Enter.jsp">BACK?</a>
+		<%@ include file="/JSP/Header.jsp"%>
+		<div>
+			HERE IS MAIN PAGE!<br>
+			ID:<%= user.getId()%><br>
+			NAME:<%= user.getName()%><br>
+			PASS:<%= user.getPass()%><br>
+			LOGIN:<%= user.getLogin()%><br>
+			<a href="/Beihic/JSP/Enter.jsp">BACK?</a>
+		</div>
 		<div>
 			<form action="/Beihic/ComentController" method="post">
 				<input type="submit" value="RELOAD!">
@@ -38,5 +44,6 @@
 				</p>
 			<%}%>
 		</div>
+		<%@ include file="/JSP/Footer.jsp"%>
 	</body>
 </html>
