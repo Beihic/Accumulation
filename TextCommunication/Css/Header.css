@@ -1,0 +1,10 @@
+@charset "UTF-8";
+header{
+	font-family:'Impact',monospace;
+	background-color:#4fa1bb;
+	font-style:oblique;
+	font-size:7vh;
+	margin:0px;
+	padding:1.5vh 0 1.5vh 0;
+	text-align:center;
+}
