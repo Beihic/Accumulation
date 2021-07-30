@@ -1,0 +1,22 @@
+@charset "UTF-8";
+#loginPanel{
+	background-color:#98c8d7;
+	width:20%;
+	margin:1%;
+	padding:0.5% 1% 1% 1%;
+	text-align:right;
+	border-radius:10px;
+	box-shadow:4px 4px 6px #265563;
+}
+#TCheader{
+	background-color:#4fa1bb;	
+	border-radius:5px;
+	text-align:center;
+	margin-bottom:2%;
+	font-weight:bolder;
+	font-style:oblique;
+	box-shadow:2px 2px 4px #265563;
+}
+#register{
+	text-align:center;
+}
