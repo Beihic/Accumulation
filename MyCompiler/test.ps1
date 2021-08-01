@@ -1,3 +1,4 @@
+set-psdebug -trace 1
 function assert($one, $two){
 	$expected = $one
 	$input = $two
@@ -16,5 +17,6 @@ function assert($one, $two){
 
 assert 0 0
 assert 42 42
+assert 21 5+20-4
 
 echo OK
