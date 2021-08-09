@@ -5,40 +5,54 @@ public class Main{
 		int h = scan.nextInt();
 		int w = scan.nextInt();
 		int n = scan.nextInt();
-		int[][] col = new int[n][2];
-		int[][] row = new int[n][2];
+		int[] col = new int[n];
+		int[] row = new int[n];
+		int[] a = new int[n];
+		int[] b = new int[n];
 		for(int i=0; i<n; i++){
-			col[i][0]=scan.nextInt();
-			col[i][1]=i;
-			row[i][0]=scan.nextInt();
-			row[i][1]=i;
+			col[i]=scan.nextInt();
+			a[i] = col[i];
+			row[i]=scan.nextInt();
+			b[i] = row[i];
 		}
-		quick(col, 0, col.length-1, 0);
-		quick(row, 0, row.length-1, 0);
+		quick(a, 0, a.length-1);
+		quick(b, 0, b.length-1);
 		for(int i=0; i<n; i++){
-			col[i][0]=i+1;
-			row[i][0]=i+1;
-		}
-		quick(col, 0, col.length-1, 1);
-		quick(row, 0, row.length-1, 1);
-		for(int i=0; i<n; i++){
-			System.out.println(col[i][0]+" "+row[i][0]);
+			System.out.println((search(a, col[i])+1)+" "+(search(b, row[i])+1));
 		}
 	}
-	private static void quick(int[][] arr, int left, int right, int index){
+	private static int search(int[] d, int x){
+		int left=0, right=d.length-1, mid=(left+right)/2;
+		while(left<right){
+			if(d[mid]==x){
+				return mid;
+			} else if(d[mid]<x){
+				left=mid+1;
+			} else {
+				right=mid-1;
+			}
+			mid=(left+right)/2;
+		}
+		if(d[mid]==x){
+			return mid;
+		}else {
+			return -1;
+		}
+	}
+	private static void quick(int[] arr, int left, int right){
 		if(left<right){
-			int p = part(arr, left, right, index);
-			quick(arr, left, p-1, index);
-			quick(arr, p+1, right, index);
+			int p = part(arr, left, right);
+			quick(arr, left, p-1);
+			quick(arr, p+1, right);
 		}
 	}
-	private static int part(int[][] arr, int left, int right, int index){
+	private static int part(int[] arr, int left, int right){
 		int tmp, k=(left+right)/2;
 		swap(arr, k, right);
 		int i=left, j=right-1;
 		while(i<=j){
-			while(arr[i][index]<arr[right][index]){i++;}
-			while(j>=i && arr[j][index]>=arr[right][index]){j--;}
+			while(arr[i]<arr[right]){i++;}
+			while(j>=i && arr[j]>=arr[right]){j--;}
 			if(i<j){
 				swap(arr, i, j);
 			}
@@ -46,12 +60,7 @@ public class Main{
 		swap(arr, i, right);
 		return i;
 	}
-	private static void swap(int[][] arr, int a, int b){
-		int tmp;
-		for(int i=0; i<arr[0].length; i++){
-			tmp = arr[a][i];
-			arr[a][i] = arr[b][i];
-			arr[b][i] = tmp;
-		}
+	private static void swap(int[] arr, int a, int b){
+		int tmp = arr[a]; arr[a] = arr[b]; arr[b] = tmp;
 	}
 }
